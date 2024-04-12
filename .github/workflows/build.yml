@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - name: Bundle web resources
+      - name: Bundle web resources for irb
         run: |
           npm install
           npx parcel build src/index.html
