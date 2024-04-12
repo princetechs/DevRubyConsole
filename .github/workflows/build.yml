@@ -1,14 +1,17 @@
 name: Build
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-        - uses: amondnet/vercel-action@v25
+      - uses: actions/checkout@v3  # This step checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - uses: amondnet/vercel-action@v25
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -17,6 +20,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: ./dist
+
   #     - uses: actions/checkout@v3
   #       with:
   #         submodules: true
