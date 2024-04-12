@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - name: Install build tools from apt
+      - name: Install build tools from apt test
         run: sudo apt-get install ruby bison make autoconf git curl build-essential libyaml-dev zlib1g-dev -y
       - name: Workaround for Debian ruby distribution
         run: |
