@@ -1,9 +1,10 @@
-name: Build
+name: Build and Deploy
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -53,6 +54,9 @@ jobs:
           path: dist
 
       - run: cp ./vercel.json ./dist
+      - name: Test Vercel Token
+        run: echo ${VERCEL_TOKEN:0:5} # This will print only the first 5 characters of the token for security
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       - uses: amondnet/vercel-action@v25
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
@@ -62,4 +66,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: ./dist
-
