@@ -58,8 +58,7 @@ jobs:
         with:
           vercel-token: "WnL8TcXDx2e0P2uuuLX6j4W7"
           vercel-args: '--prod'
-          vercel-org-id: "prj_W5ANG2b8QbHzmmjGs29hAwxl3u4T"
-          vercel-project-id: "DtgqonlvyI39AlvN7yznuqsg"
+          vercel-org-id: "DtgqonlvyI39AlvN7yznuqsg"
+          vercel-project-id: "prj_W5ANG2b8QbHzmmjGs29hAwxl3u4T"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: ./dist
-
