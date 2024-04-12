@@ -62,4 +62,3 @@
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: ./dist
-
